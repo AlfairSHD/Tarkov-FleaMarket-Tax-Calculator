@@ -43,7 +43,7 @@ int main()
     int Vzero = (((BasePrice + MeanPrice) / Tic) * Q);
     int Vr = ((BasePrice + MeanPrice) * TotalAmount);
 
-    double Pzero = 0;
+    float Pzero = 0;
 
     if (Vr < Vzero)
     {
@@ -54,7 +54,7 @@ int main()
         Pzero = log10(Vzero / Vr);
     }
 
-    double Pr = 0;
+    float Pr = 0;
 
     if (Vr >= Vzero)
     {
@@ -64,10 +64,10 @@ int main()
     {
         Pr = log10(Vr / Vzero);
     }
-    const double Ti = 0.07;
-    const double Tr = 0.05;
+    const float Ti = 0.07;
+    const float Tr = 0.05;
 
-    double Tax = round((Vzero * Ti * pow(4, Pzero) * Q) + (Vr * Tr * pow(4, Pr) * Q));
+    float Tax = round((Vzero * Ti * pow(4, Pzero) * Q) + (Vr * Tr * pow(4, Pr) * Q));
     std::cout << "=================================================================================================" << "\n";
     std::cout << "Your tax is :" << Tax << "\n";
 }
